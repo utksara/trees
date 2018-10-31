@@ -1,0 +1,39 @@
+#include <iostream> 
+using namespace std; 
+
+struct node{
+    int a;
+    node *next;
+}*start, *term;
+
+node *create(int x){
+    node *n  =new node;
+    (*n).a = x;
+    return n;
+}
+
+void  insert(node *x){
+    if(start == NULL){
+        start = term = x;
+        //end  = start;
+    }
+    else{
+        term->next = x;
+        term = x;
+    }
+}
+int main() { 
+
+node *n0, *n1, *n2;
+int x0,x1;
+
+cin>>x0>>x1;    
+
+n0 = create(x0);
+n1 = create(x1);
+insert(n0);
+insert(n1);
+insert(n1);
+
+cout<<term->a;
+}
